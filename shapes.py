@@ -46,11 +46,8 @@ def choice(shape):
         print('error')
 
 
-shapes = ["triangle","square","rectangle","circle"]
-user_shape = input("Enter a shape: ")
-if user_shape != shapes:
-    user_shape = input("Error. Enter triangle, square, rectangle, or circle: ")
 
+user_shape = input("Enter a shape: ")
 
 choice(user_shape)
 
