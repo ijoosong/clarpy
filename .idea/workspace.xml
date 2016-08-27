@@ -365,7 +365,14 @@
       <option name="project" value="LOCAL" />
       <updated>1472268920517</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="need help">
+      <created>1472269021419</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1472269021419</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -406,7 +413,8 @@
     <MESSAGE value="this is my first one" />
     <MESSAGE value="testing" />
     <MESSAGE value="almost" />
-    <option name="LAST_COMMIT_MESSAGE" value="almost" />
+    <MESSAGE value="need help" />
+    <option name="LAST_COMMIT_MESSAGE" value="need help" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
