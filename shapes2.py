@@ -62,22 +62,27 @@ def surface_area(shape, list, index):
 shapes_list = ["circle", "square", "rectangle", "triangle", "cube", "sphere", "cone"]
 
 
-keep_going = "yes"
-while keep_going == "yes":
-    user_input2 = input("Do you want to find perimeter (p), area (a), or surface area (sa)? ")
-    user_input1 = input("Enter shape(s): ")
-    user_list = user_input1.split(" ")
-
-    for var in user_list:
-        for shape in shapes_list:
-            if var == shape:
+def do_work():
+    keep_going = "yes"
+    while keep_going == "yes":
+        user_input2 = input("Do you want to find perimeter (p), area (a), or surface area (sa)? ")
+        user_input1 = input("Enter shape(s): ")
+        user_list = user_input1.split(" ")
+        shapes = []
+        for var in user_list:
+            if var in shapes_list:
                 x = user_list.index(var)
                 if user_input2 == "perimeter" or user_input2 == "p":
                     perimeter(var, user_list, x)
                 elif user_input2 == "area" or user_input2 == "a":
                     area(var, user_list, x)
                 elif user_input2 == "surface area" or user_input2 == "sa":
-                    surface_area(var, user_list, x)
-    keep_going = input("keep going? ")
+                    sa = surface_area(var, user_list, x)
+                    shapes.append((var, sa))
+        keep_going = input("keep going? ")
 
-#comment
+########
+# Find out if there are multiple shapes (hint you can do something like if len(shapes) > 1:
+# Have a variable named shapes and make it all the shapes the user wants to find things from
+#
+do_work()
