@@ -5,11 +5,79 @@
 4) return the biggest to smallest term
 """
 
-shapes_list = ["square", "rectangle", "triangle", "cube", "sphere", "pyramid"]
-user_input = input("Enter a shape: ")
-user_list = user_input.split(" ")
+def perimeter(shape, list, index):
+    perimeter = 0
+    if shape == "triangle":
+        a = list[index + 1]
+        b = list[index + 2]
+        c = list[index + 3]
+        perimeter = int(a) + int(b) + int(c)
+    elif shape == "square":
+        side = list[index + 1]
+        perimeter = int(side)*4
+    elif shape == "rectangle":
+        height = list[index + 1]
+        width = list[index + 2]
+        perimeter = 2*int(height) + 2*int(width)
+    elif shape == "circle":
+        radius = list[index + 1]
+        perimeter = 2*3.14*int(radius)
+    print("The perimeter of the " + shape + " is " + str(perimeter))
 
-for shape in shapes_list:
+
+def area(shape, list, index):
+    area = 0
+    if shape == "triangle":
+        base = list[index + 1]
+        height = list[index + 2]
+        area = (int(base)*int(height))/2
+    elif shape == "square":
+        side = list[index + 1]
+        area = int(side)**2
+    elif shape == "rectangle":
+        height = list[index + 1]
+        width = list[index + 2]
+        area = int(height)*int(width)
+    elif shape == "circle":
+        radius = list[index + 1]
+        area = 3.14*(int(radius)**2)
+    print("The area of the " + shape + " is "+ str(area))
+
+
+def surface_area(shape, list, index):
+    sa = 0
+    if shape == "cube":
+        edge = list[index + 1]
+        sa = 6 * (int(edge)**2)
+    elif shape == "sphere":
+        radius = list[index + 1]
+        sa = 4 * 3.14 * (int(radius)**2)
+    elif shape == "cone":
+        radius = list[index + 1]
+        height = list[index + 2]
+        sa = 3.14 * int(radius) * (int(radius) * ((int(height)**2 + int(radius)**2)**.5))
+    print("The surface area of the " + shape + " is " + str(sa))
+
+
+shapes_list = ["circle", "square", "rectangle", "triangle", "cube", "sphere", "cone"]
+
+
+keep_going = "yes"
+while keep_going == "yes":
+    user_input2 = input("Do you want to find perimeter (p), area (a), or surface area (sa)? ")
+    user_input1 = input("Enter shape(s): ")
+    user_list = user_input1.split(" ")
+
     for var in user_list:
-        if var == shape:
-            print("yes")
+        for shape in shapes_list:
+            if var == shape:
+                x = user_list.index(var)
+                if user_input2 == "perimeter" or user_input2 == "p":
+                    perimeter(var, user_list, x)
+                elif user_input2 == "area" or user_input2 == "a":
+                    area(var, user_list, x)
+                elif user_input2 == "surface area" or user_input2 == "sa":
+                    surface_area(var, user_list, x)
+    keep_going = input("keep going? ")
+
+
