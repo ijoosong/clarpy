@@ -22,7 +22,7 @@ def perimeter(shape, list, index):
     elif shape == "circle":
         radius = list[index + 1]
         perimeter = 2*3.14*int(radius)
-    print("The perimeter of the " + shape + " is " + str(perimeter))
+    return perimeter
 
 
 def area(shape, list, index):
@@ -41,7 +41,7 @@ def area(shape, list, index):
     elif shape == "circle":
         radius = list[index + 1]
         area = 3.14*(int(radius)**2)
-    print("The area of the " + shape + " is "+ str(area))
+    return area
 
 
 def surface_area(shape, list, index):
@@ -56,7 +56,7 @@ def surface_area(shape, list, index):
         radius = list[index + 1]
         height = list[index + 2]
         sa = 3.14 * int(radius) * (int(radius) * ((int(height)**2 + int(radius)**2)**.5))
-    print("The surface area of the " + shape + " is " + str(sa))
+    return sa
 
 
 shapes_list = ["circle", "square", "rectangle", "triangle", "cube", "sphere", "cone"]
@@ -68,21 +68,33 @@ def do_work():
         user_input2 = input("Do you want to find perimeter (p), area (a), or surface area (sa)? ")
         user_input1 = input("Enter shape(s): ")
         user_list = user_input1.split(" ")
+
         shapes = []
         for var in user_list:
             if var in shapes_list:
                 x = user_list.index(var)
                 if user_input2 == "perimeter" or user_input2 == "p":
-                    perimeter(var, user_list, x)
+                    per = perimeter(var, user_list, x)
+                    shapes.append((var, per))
                 elif user_input2 == "area" or user_input2 == "a":
-                    area(var, user_list, x)
+                    ar = area(var, user_list, x)
+                    shapes.append((var, ar))
                 elif user_input2 == "surface area" or user_input2 == "sa":
                     sa = surface_area(var, user_list, x)
                     shapes.append((var, sa))
+
+        length = len(shapes)
+        if length > 1:
+            shapes = sorted(shapes, key=lambda value: int(value[1]), reverse=True)
+            print("Greatest value to the least are the following: ")
+            z = 0
+            while z < length:
+                print(str(shapes[z][0]) + "(" + str(shapes[z][1]) + ")")
+                z += 1
+        elif length == 1:
+            print(str(shapes[0][0]) + "(" + str(shapes[0][1]) + ")")
+
         keep_going = input("keep going? ")
 
-########
-# Find out if there are multiple shapes (hint you can do something like if len(shapes) > 1:
-# Have a variable named shapes and make it all the shapes the user wants to find things from
-#
+
 do_work()

@@ -46,8 +46,11 @@ def choice(shape):
         print('error')
 
 
-
+"""
 user_shape = input("Enter a shape: ")
 
 choice(user_shape)
+"""
 
+list_in_list = [("A", 1), ("B", 2), ("C", 3)]
+print(len(list_in_list))
