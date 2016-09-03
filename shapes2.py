@@ -70,18 +70,18 @@ def do_work():
         user_list = user_input1.split(" ")
 
         shapes = []
-        for var in user_list:
-            if var in shapes_list:
-                x = user_list.index(var)
+        for index in range(len(user_list)):
+            if user_list[index] in shapes_list:
+                shape = user_list[index]
                 if user_input2 == "perimeter" or user_input2 == "p":
-                    per = perimeter(var, user_list, x)
-                    shapes.append((var, per))
+                    per = perimeter(shape, user_list, index)
+                    shapes.append((shape, per))
                 elif user_input2 == "area" or user_input2 == "a":
-                    ar = area(var, user_list, x)
-                    shapes.append((var, ar))
+                    ar = area(shape, user_list, index)
+                    shapes.append((shape, ar))
                 elif user_input2 == "surface area" or user_input2 == "sa":
-                    sa = surface_area(var, user_list, x)
-                    shapes.append((var, sa))
+                    sa = surface_area(shape, user_list, index)
+                    shapes.append((shape, sa))
 
         length = len(shapes)
         if length > 1:
@@ -95,7 +95,6 @@ def do_work():
             print(str(shapes[0][0]) + "(" + str(shapes[0][1]) + ")")
 
         keep_going = input("keep going? ")
-
 
 
 do_work()
